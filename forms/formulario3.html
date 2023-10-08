@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Ventas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Formulario de Ventas</h2>
+        <form id="venta-form">
+            <div class="form-group">
+                <label for="cliente">Cliente:</label>
+                <select class="form-control" id="cliente">
+                    <option value="cliente1">Cliente 1</option>
+                    <option value="cliente2">Cliente 2</option>
+                    <option value="cliente3">Cliente 3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="producto">Producto:</label>
+                <select class="form-control" id="producto">
+                    <option value="producto1">Producto 1</option>
+                    <option value="producto2">Producto 2</option>
+                    <option value="producto3">Producto 3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" class="form-control" id="cantidad" placeholder="Ingrese la cantidad vendida">
+            </div>
+            <div class="form-group">
+                <label for="precio">Precio Unitario:</label>
+                <input type="number" class="form-control" id="precio" placeholder="Ingrese el precio unitario">
+            </div>
+            <button type="submit" class="btn btn-primary">Registrar Venta</button>
+        </form>
+        
+        <!-- Alerta de Bootstrap (inicialmente oculta) -->
+        <div id="alerta" class="alert alert-success mt-3" style="display: none;">
+            Venta registrada correctamente.
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('venta-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Evitar el envío del formulario por defecto
+
+            // Mostrar la alerta de Bootstrap
+            document.getElementById('alerta').style.display = 'block';
+
+            // Restablecer los campos del formulario
+            document.getElementById('cliente').value = 'cliente1'; // Puedes establecer un valor predeterminado
+            document.getElementById('producto').value = 'producto1'; // Puedes establecer un valor predeterminado
+            document.getElementById('cantidad').value = '';
+            document.getElementById('precio').value = '';
+        });
+    </script>
+</body>
+</html>

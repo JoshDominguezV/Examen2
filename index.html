@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Aplicación de Gestión</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Menú lateral -->
+            <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-form="formulario1.html">
+                                Formulario de Clientes
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-form="formulario2.html">
+                                Formulario de Productos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-form="formulario3.html">
+                                Formulario de Ventas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-form="formulario4.html">
+                                Formulario de Sucursales
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-form="formulario5.html">
+                                Formulario de Pedidos
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <!-- Contenido principal -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="pt-3">
+                    <iframe id="formulario-iframe" src="forms/formulario1.html" frameborder="0" width="100%" height="600"></iframe>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        // Función para cargar formularios en el iframe
+        function cargarFormulario(url) {
+            document.getElementById('formulario-iframe').src = "forms/" + url;
+        }
+
+        // Agrega un evento clic a todos los enlaces del menú lateral
+        document.querySelectorAll('.nav-link').forEach(function (enlace) {
+            enlace.addEventListener('click', function (e) {
+                e.preventDefault();
+                cargarFormulario(enlace.getAttribute('data-form'));
+            });
+        });
+
+        // Cargar el formulario 1 por defecto al cargar la página
+        cargarFormulario("formulario1.html");
+    </script>
+</body>
+</html>

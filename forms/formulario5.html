@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Pedidos a Proveedores</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Formulario de Pedidos a Proveedores</h2>
+        <form id="pedido-form">
+            <div class="form-group">
+                <label for="proveedor">Proveedor:</label>
+                <select class="form-control" id="proveedor">
+                    <option value="proveedor1">Proveedor 1</option>
+                    <option value="proveedor2">Proveedor 2</option>
+                    <option value="proveedor3">Proveedor 3</option>
+                    <!-- Agrega opciones de proveedores desde la base de datos si es necesario -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="producto">Producto:</label>
+                <select class="form-control" id="producto">
+                    <option value="producto1">Producto 1</option>
+                    <option value="producto2">Producto 2</option>
+                    <option value="producto3">Producto 3</option>
+                    <!-- Agrega opciones de productos desde la base de datos si es necesario -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cantidad">Cantidad a Solicitar:</label>
+                <input type="number" class="form-control" id="cantidad" placeholder="Ingrese la cantidad a solicitar">
+            </div>
+            <div class="form-group">
+                <label for="fecha_entrega">Fecha de Entrega Esperada:</label>
+                <input type="date" class="form-control" id="fecha_entrega">
+            </div>
+            <div class="form-group">
+                <label for="estado_pedido">Estado del Pedido:</label>
+                <select class="form-control" id="estado_pedido">
+                    <option value="pendiente">Pendiente</option>
+                    <option value="en_proceso">En Proceso</option>
+                    <option value="entregado">Entregado</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Registrar Pedido</button>
+        </form>
+        
+        <!-- Alerta de Bootstrap (inicialmente oculta) -->
+        <div id="alerta" class="alert alert-success mt-3" style="display: none;">
+            Pedido registrado correctamente.
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('pedido-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Evitar el envío del formulario por defecto
+            // Mostrar la alerta de Bootstrap
+            document.getElementById('alerta').style.display = 'block';
+
+            // Restablecer los campos del formulario
+            document.getElementById('proveedor').value = 'proveedor1'; // Puedes establecer un valor predeterminado
+            document.getElementById('producto').value = 'producto1'; // Puedes establecer un valor predeterminado
+            document.getElementById('cantidad').value = '';
+            document.getElementById('fecha_entrega').value = '';
+            document.getElementById('estado_pedido').value = 'pendiente'; // Puedes establecer un valor predeterminado
+        });
+    </script>
+</body>
+</html>
